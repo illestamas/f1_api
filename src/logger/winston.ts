@@ -1,7 +1,7 @@
 import { createLogger, transports, format } from "winston"
 
 export const logger = createLogger({
-  level: process.env.APPSETTING_LOG_LEVEL,
+  level: process.env.LOG_LEVEL,
   format: format.combine(
     format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
     format.printf((info) => {
@@ -13,6 +13,6 @@ export const logger = createLogger({
   ),
 }).add(
   new transports.Console({
-    level: process.env.APPSETTING_LOG_LEVEL,
+    level: process.env.LOG_LEVEL,
   })
 )

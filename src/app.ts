@@ -2,7 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import { logger } from "./logger/winston"
 
-import driverRouter from "./utils/routes/driver.routes"
+import driverRouter from "./routes/driver.routes"
 
 dotenv.config()
 
@@ -17,7 +17,7 @@ app.listen(process.env.PORT, () => {
 })
 
 function assertEnvironmentVariablesLoaded() {
-  const variables = ["HOST", "PORT"]
+  const variables = ["HOST", "PORT", "LOG_LEVEL"]
 
   for (const variable of variables) {
     if (!process.env[variable]) {
